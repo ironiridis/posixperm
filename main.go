@@ -1,8 +1,7 @@
-package posixperm
-
 // This package provides a Perm type that is assignable to/from an fs.FileMode and survives
 // marshaling into and out of text. It supports a variety of conventional POSIX file permission
 // notations for unmarshaling:
+//
 //	`rwx` -- assign read/write/execute across all users (including owner and group members)
 //	`rw-` / `r-x` -- as above, dropping execute or write
 //	`644` -- implied octal form, specifying read/write for owner, read-only for group/other
@@ -14,9 +13,11 @@ package posixperm
 //	`ug=rxu+w` -- symbolic form as above but without space separator
 //
 // It's also possible to use long form permission styles:
+//
 //	`rwxr-xr-x` -- 'ls' style r/w/x for owner, and r/x for group/other
 //	`-rwxr-xr-x` -- as above, but using the full 10+ byte syntax used by fs.FileMode
 //	`ur-xr-x---` -- fs.FileMode syntax with owner/group read/execute plus setuid flag
+package posixperm
 
 import (
 	"fmt"
