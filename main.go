@@ -279,3 +279,8 @@ func FromFileMode(m fs.FileMode) (r Perm, err error) {
 	r = Perm(m)
 	return
 }
+
+// FileMode returns the fs.FileMode typed value of a Perm.
+func (p Perm) FileMode() fs.FileMode {
+	return fs.FileMode(p)
+}
