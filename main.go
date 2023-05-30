@@ -273,3 +273,9 @@ func FromString(p string) (r Perm, err error) {
 func (p Perm) String() string {
 	return fs.FileMode(p).String()
 }
+
+// FromFileMode returns a new Perm copied from m. It never returns an error.
+func FromFileMode(m fs.FileMode) (r Perm, err error) {
+	r = Perm(m)
+	return
+}
