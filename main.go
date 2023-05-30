@@ -261,3 +261,10 @@ func (p *Perm) UnmarshalText(b []byte) error {
 func (p Perm) MarshalText() ([]byte, error) {
 	return []byte(p.String()), nil
 }
+
+// FromString parses the string p following the same rules as UnmarshalText, returning a new Perm. An
+// error is returned if the string cannot be parsed as a Perm value.
+func FromString(p string) (r Perm, err error) {
+	err = r.UnmarshalText([]byte(p))
+	return
+}
