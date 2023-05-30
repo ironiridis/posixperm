@@ -268,3 +268,8 @@ func FromString(p string) (r Perm, err error) {
 	err = r.UnmarshalText([]byte(p))
 	return
 }
+
+// String returns the canonical fs.FileMode string representation of a Perm.
+func (p Perm) String() string {
+	return fs.FileMode(p).String()
+}
