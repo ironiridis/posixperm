@@ -258,6 +258,6 @@ func (p *Perm) UnmarshalText(b []byte) error {
 // of mode, type, and behavior bits, or a dash if none are set, followed by 9 permission bits.
 // MarshalText may return a format different than the format parsed if this type was unmarshaled as it
 // always uses the full representation that is unambiguous and supports extended mode bits.
-func (p *Perm) MarshalText() ([]byte, error) {
-	return []byte(fs.FileMode(*p).String()), nil
+func (p Perm) MarshalText() ([]byte, error) {
+	return []byte(p.String()), nil
 }
